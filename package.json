@@ -4,10 +4,19 @@
   "license": "MIT",
   "homepage": "http://ahfarmer.github.io/calculator",
   "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@storybook/react": "^4.1.11",
+    "babel-loader": "^8.0.5",
     "chai": "^4.1.2",
     "gh-pages": "^1.1.0",
     "prettier": "1.13.0",
-    "react-scripts": "^1.1.4"
+    "react-scripts": "^1.1.4",
+    "reg-keygen-git-hash-plugin": "^0.7.16",
+    "reg-notify-github-plugin": "^0.7.19",
+    "reg-notify-slack-plugin": "^0.7.16",
+    "reg-publish-gcs-plugin": "^0.7.16",
+    "reg-suit": "^0.7.17",
+    "zisui": "^1.2.2"
   },
   "dependencies": {
     "big.js": "^5.1.2",
@@ -20,7 +29,10 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "storybook": "start-storybook -p 9001 -c .storybook",
+    "pretest-visual": "zisui --serverCmd \"npm run storybook\" http://localhost:9001 -o actual_images",
+    "test-visual": "reg-suit run"
   },
   "prettier": {
     "trailingComma": "all"
