@@ -27,5 +27,8 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "yarn.lock" }}
       - run:
+          name: Screenshot
+          command: yarn run screenshot
+      - run:
           name: Regression
-          command: yarn test-visual
+          command: yarn run regression

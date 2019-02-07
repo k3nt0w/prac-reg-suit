@@ -31,8 +31,8 @@
     "eject": "react-scripts eject",
     "deploy": "gh-pages -d build",
     "storybook": "start-storybook -p 9001 -c .storybook",
-    "pretest-visual": "zisui --serverCmd \"npm run storybook\" http://localhost:9001 -o actual_images",
-    "test-visual": "reg-suit run"
+    "screenshot": "zisui --serverCmd \"npm run storybook\" http://localhost:9001 -o actual_images",
+    "regression": "reg-suit run"
   },
   "prettier": {
     "trailingComma": "all"
