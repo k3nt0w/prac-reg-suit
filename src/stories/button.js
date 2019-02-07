@@ -2,8 +2,10 @@ import React from "react";
 import { storiesOf } from "@storybook/react";
 import Button from "../component/Button";
 import "../component/Button.css";
+import { withScreenshot } from "storybook-chrome-screenshot";
 
 storiesOf("Button", module)
+  .addDecorator(withScreenshot())
   .add("normal", () => (
     <Button
       name="2"

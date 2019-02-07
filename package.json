@@ -16,6 +16,7 @@
     "reg-notify-slack-plugin": "^0.7.16",
     "reg-publish-gcs-plugin": "^0.7.16",
     "reg-suit": "^0.7.17",
+    "storybook-chrome-screenshot": "^1.4.0",
     "zisui": "^1.2.2"
   },
   "dependencies": {
@@ -31,7 +32,7 @@
     "eject": "react-scripts eject",
     "deploy": "gh-pages -d build",
     "storybook": "start-storybook -p 9001 -c .storybook",
-    "screenshot": "zisui --serverTimeout 1200000 --serverCmd \"yarn storybook\" http://localhost:9001",
+    "screenshot": "storybook-chrome-screenshot -p 9001 -c .storybook",
     "regression": "reg-suit run"
   },
   "prettier": {
