@@ -1,34 +1,24 @@
-defaults: &defaults
-  working_directory: ~/reg-suit
-  docker:
-    - image: kahiro/node-nightmare
-      environment:
-        DISPLAY: ":99"
-        GOOGLE_APPLICATION_CREDENTIALS: "/root/gcloud-service-key.json"
-
 version: 2
 jobs:
   build:
-    <<: *defaults
+    docker:
+      - image: regviz/node-xcb
+
+    working_directory: ~/repo
+
     steps:
       - checkout
-      - run:
-          name: setup GCP
-          command: echo $GCLOUD_SERVICE_KEY | base64 -d > /root/gcloud-service-key.json
       - restore_cache:
           keys:
-            - v1-dependencies-{{ checksum "yarn.lock" }}
+            - v1-dependencies-{{ checksum "package.json" }}-{{ checksum "yarn.lock" }}
             - v1-dependencies-
-      - run:
-          name: Install dependencies
-          command: yarn --pure-lockfile
+
+      - run: yarn
+
       - save_cache:
           paths:
             - node_modules
-          key: v1-dependencies-{{ checksum "yarn.lock" }}
-      - run:
-          name: Screenshot
-          command: yarn run screenshot
-      - run:
-          name: Regression
-          command: yarn run regression
+          key: v1-dependencies-{{ checksum "package.json" }}-{{ checksum "yarn.lock" }}
+
+      - run: yarn screenshot
+      - run: yarn regression
