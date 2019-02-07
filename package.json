@@ -15,15 +15,14 @@
     "reg-notify-github-plugin": "^0.7.19",
     "reg-notify-slack-plugin": "^0.7.16",
     "reg-publish-gcs-plugin": "^0.7.16",
-    "reg-suit": "^0.7.17",
-    "storybook-chrome-screenshot": "^1.4.0",
-    "zisui": "^1.2.2"
+    "reg-suit": "^0.7.17"
   },
   "dependencies": {
     "big.js": "^5.1.2",
     "github-fork-ribbon-css": "^0.2.1",
     "react": "^16.4.0",
-    "react-dom": "^16.4.0"
+    "react-dom": "^16.4.0",
+    "zisui": "^1.2.2"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -32,7 +31,7 @@
     "eject": "react-scripts eject",
     "deploy": "gh-pages -d build",
     "storybook": "start-storybook -p 9001 -c .storybook",
-    "screenshot": "storybook-chrome-screenshot -p 9001 -c .storybook",
+    "screenshot": "zisui --serverCmd \"npm run storybook\" http://localhost:9001",
     "regression": "reg-suit run"
   },
   "prettier": {
