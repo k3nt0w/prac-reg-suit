@@ -20,5 +20,4 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
 
-      - run: npm run screenshot
-      - run: npm run regression
+      - run: npm run test-visual
