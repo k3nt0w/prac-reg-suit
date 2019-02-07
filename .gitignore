@@ -5,7 +5,7 @@ node_modules
 
 # testing
 coverage
-actual_images
+__screenshots__
 
 # production
 build
